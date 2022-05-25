@@ -7,7 +7,9 @@ module.exports = {
       'white': '#fff',
       'header': '#E7E7EB',
       'maxdegree': '#E7E7EB',
-      'mindegree': '#A09FB1'
+      'mindegree': '#A09FB1',
+      'deactivatedDegreeButton': '#585676',
+      'progress': '#FFEC65'
     },
     extend: {},
   },

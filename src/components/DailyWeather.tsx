@@ -3,9 +3,10 @@ import heavyRain from "../assets/HeavyRain.png";
 function DailyWeather(props: any) {
   const celcius_max = props.max - 273.15;
   const celcius_min = props.min - 273.15;
+  // const [temperature, ]
 
   return (
-    <div className="bg-left w-32 h-44 flex flex-col justify-center items-center">
+    <div className="bg-left w-full h-44 flex flex-col justify-center items-center">
       <header className="text-header">Tomorrow</header>
       <main>
         <img src={heavyRain} className="w-12 h-12" alt="weather_icon" />
