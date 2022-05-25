@@ -60,6 +60,11 @@ function App() {
             <AirPressure airPressure={weatherProps?.list[0].main.pressure} />
           </div>
         </div>
+        <footer className="text-footer text-center mb-5">
+          created by{" "}
+          <span className="underline font-semibold">Firmino Massango</span> -
+          devChallenges.io
+        </footer>
       </div>
     </div>
   );

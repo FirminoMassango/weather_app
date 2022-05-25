@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 
-function Humidity(props: number) {
+function Humidity(props: any) {
   const [progressFill, setProgressFill] = useState<string>(
     "bg-progress h-2 rounded-lg"
   );
+
+  //   const newNumberType: number = parseInt(props.visibility) + 1;
+  //   console.log(newNumberType);
 
   useEffect(() => {
     if (props.visibility === 0) {

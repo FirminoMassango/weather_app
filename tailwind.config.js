@@ -9,7 +9,8 @@ module.exports = {
       'maxdegree': '#E7E7EB',
       'mindegree': '#A09FB1',
       'deactivatedDegreeButton': '#585676',
-      'progress': '#FFEC65'
+      'progress': '#FFEC65',
+      'footer': '#A09FB1'
     },
     extend: {},
   },
