@@ -1,4 +1,4 @@
-import clear from "../assets/Clear.png";
+import clear from "../../../assets/Clear.png";
 
 function ClearSkyIcon() {
   return (

@@ -8,10 +8,10 @@ import Visibility from "./components/Visibility";
 import WindStatus from "./components/WindStatus";
 import { token } from "./helper/token";
 import { RootObject } from "./helper/Type";
-import heavyRain from "./assets/HeavyRain.png";
+import LeftPanel from "./components/LeftPanel";
 
 function App() {
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("Maputo");
   const [humidity, setHumidity] = useState<number>(0);
   const [weatherProps, setWeatherProps] = useState<RootObject>();
 
@@ -36,42 +36,11 @@ function App() {
   return (
     <div className="flex h-full">
       <div id-="left" className="w-1/3  bg-left text-white font-raleway">
-        <div className="m-10">
-          <div id="1" className="flex justify-between">
-            <button className="bg-secondary px-5">Search for places</button>
-            <button className="bg-secondary w-10 h-10 rounded-full flex justify-center items-center">
-              <span className="material-icons text-2xl">my_location</span>
-            </button>
-          </div>
-          <div className="flex flex-col justify-center content-center ">
-            <div id="2" className="flex justify-center my-10">
-              <img src={heavyRain} className="w-36" alt="HeavyRain" />
-            </div>
-            <div id="3" className="text-center mb-10">
-              <span className="text-6xl">
-                {weatherProps?.list[0].main.temp_max}
-              </span>
-              <span className="text-2xl"> °C</span>
-            </div>
-            <div id="4" className="text-center mb-10">
-              <span className="text-3xl text-dark-100">
-                {weatherProps?.list[0].weather[0].description}
-              </span>
-            </div>
-            <div
-              id="5"
-              className="flex flex-col text-center text-dark-200 mb-10"
-            >
-              <span>Today • Fri, 5 Jun</span>
-              <div className="flex justify-center items-center mt-5">
-                <span className="material-icons text-lg text-dark-200  mr-1">
-                  location_pin
-                </span>
-                <span className="font-semibold">{weatherProps?.city.name}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <LeftPanel
+          temp={weatherProps?.list[0].main.temp_max}
+          description={weatherProps?.list[0].weather[0].description}
+          city={weatherProps?.city.name}
+        />
       </div>
       <div id="right" className="w-2/3 bg-right overflow-scroll font-raleway">
         <div id="container" className="mx-32 my-10">
@@ -83,6 +52,7 @@ function App() {
               return (
                 <div className="flex justify-between">
                   <DailyWeather
+                    icon={weather.weather[0].description}
                     max={weather.main.temp_max}
                     min={weather.main.temp_min}
                   />

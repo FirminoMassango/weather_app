@@ -16,10 +16,24 @@ module.exports = {
       'dark-200': '#88869D'
 
     },
+    backgroundPosition: {
+      'top-4': 'center top 5rem',
+    },
     extend: {
       fontFamily: {
         raleway: ['Raleway']
-      }
+      },
+      backgroundImage: {
+        'hero-pattern': "url('./src/assets/Cloud-background.png')",
+      },
+      backgroundSize: {
+        'auto': 'auto',
+        'cover': 'cover',
+        'contain': 'contain',
+        '50%': '100%',
+        '16': '4rem',
+      },
+      
     },
   },
   plugins: [],

@@ -1,4 +1,4 @@
-import fewClouds from "../assets/LightCloud.png";
+import fewClouds from "../../../assets/LightCloud.png";
 
 function FewCloudsIcon() {
   return (

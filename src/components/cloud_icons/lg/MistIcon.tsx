@@ -1,4 +1,4 @@
-import mist from "../assets/mist.png";
+import mist from "../../../assets/mist.png";
 
 function MistIcon() {
   return (

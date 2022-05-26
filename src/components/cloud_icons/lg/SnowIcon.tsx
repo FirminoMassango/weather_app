@@ -1,4 +1,4 @@
-import snow from "../assets/Snow.png";
+import snow from "../../../assets/Snow.png";
 
 function SnowIcon() {
   return (

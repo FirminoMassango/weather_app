@@ -1,4 +1,4 @@
-import scatteredClouds from "../assets/HeavyCloud.png";
+import scatteredClouds from "../../../assets/HeavyCloud.png";
 
 function ScatteredCloudsIcon() {
   return (

@@ -1,4 +1,4 @@
-import showerRain from "../assets/Shower.png";
+import showerRain from "../../../assets/Shower.png";
 
 function ShowerRainIcon() {
   return (

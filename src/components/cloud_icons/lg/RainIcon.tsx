@@ -1,4 +1,4 @@
-import rain from "../assets/HeavyRain.png";
+import rain from "../../../assets/HeavyRain.png";
 
 function RainIcon() {
   return (

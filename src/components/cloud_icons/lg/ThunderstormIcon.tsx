@@ -1,4 +1,4 @@
-import thunderstorm from "../assets/Thunderstorm.png";
+import thunderstorm from "../../../assets/Thunderstorm.png";
 
 function ThunderstormIcon() {
   return (
