@@ -15,7 +15,7 @@ function App() {
   const [humidity, setHumidity] = useState<number>(0);
   const [weatherProps, setWeatherProps] = useState<RootObject>();
 
-  const url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&q=${city}&appid=${token}`;
+  const url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&q=Maputo&appid=e81a6836bb1ca7c059ad403ca41b2dbe`;
 
   async function fetchWeatherProps() {
     const response = await fetch(url);
