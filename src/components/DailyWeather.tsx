@@ -17,7 +17,7 @@ function DailyWeather(props: any) {
 
   return (
     <div className="bg-left w-full h-44 flex flex-col justify-center ">
-      <header className="text-header text-center">Tomorrow</header>
+      <header className="text-header text-center">{props.date}</header>
       <main className="flex justify-center">
         {props.icon === "clear sky" && <ClearSkyIcon />}
         {props.icon === "few clouds" && <FewCloudsIcon />}

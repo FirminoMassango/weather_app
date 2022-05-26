@@ -52,6 +52,7 @@ function App() {
               return (
                 <div className="flex justify-between">
                   <DailyWeather
+                    date={weather.dt_txt}
                     icon={weather.weather[0].description}
                     max={weather.main.temp_max}
                     min={weather.main.temp_min}
