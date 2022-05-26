@@ -10,9 +10,17 @@ module.exports = {
       'mindegree': '#A09FB1',
       'deactivatedDegreeButton': '#585676',
       'progress': '#FFEC65',
-      'footer': '#A09FB1'
+      'footer': '#A09FB1',
+      'secondary': '#6E707A',
+      'dark-100': '#A09FB1',
+      'dark-200': '#88869D'
+
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        raleway: ['Raleway']
+      }
+    },
   },
   plugins: [],
 }

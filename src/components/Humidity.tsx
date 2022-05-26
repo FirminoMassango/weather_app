@@ -5,31 +5,30 @@ function Humidity(props: any) {
     "bg-progress h-2 rounded-lg"
   );
 
-  //   const newNumberType: number = parseInt(props.visibility) + 1;
-  //   console.log(newNumberType);
+  const humidity: number = props.humidity;
 
   useEffect(() => {
-    if (props.visibility === 0) {
+    if (humidity === 0) {
       setProgressFill("bg-white h-2 rounded-lg");
-    } else if (props.visibility <= 10) {
+    } else if (humidity <= 10) {
       setProgressFill("bg-progress w-1/12 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 20) {
+    } else if (humidity <= 20) {
       setProgressFill("bg-progress w-1/5 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 30) {
+    } else if (humidity <= 30) {
       setProgressFill("bg-progress w-1/3 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 40) {
+    } else if (humidity <= 40) {
       setProgressFill("bg-progress w-2/5 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 50) {
+    } else if (humidity <= 50) {
       setProgressFill("bg-progress w-1/2 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 60) {
+    } else if (humidity <= 60) {
       setProgressFill("bg-progress w-3/5 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 70) {
+    } else if (humidity <= 70) {
       setProgressFill("bg-progress w-3/4 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 80) {
+    } else if (humidity <= 80) {
       setProgressFill("bg-progress w-4/5 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) <= 90) {
+    } else if (humidity <= 90) {
       setProgressFill("bg-progress w-11/12 h-2 rounded-lg");
-    } else if (parseInt(props.visibility) === 100) {
+    } else if (humidity === 100) {
       setProgressFill("bg-progress w-full h-2 rounded-lg");
     }
   }, []);
@@ -37,7 +36,7 @@ function Humidity(props: any) {
   return (
     <div className="bg-left flex flex-col justify-center w-full h-44">
       <header className="text-white text-center">Humidity</header>
-      <main className="text-white text-3xl text-center font-black my-5">
+      <main className="text-white text-5xl text-center font-black my-5">
         {props.humidity}%
       </main>
       <footer className="mx-10 text-white text-xs">
