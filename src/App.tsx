@@ -52,11 +52,11 @@ function App() {
             <SwitchScale />
           </header>
           <main className="grid grid-rows-3 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-5">
-            {weatherProps?.data.slice(1, 6).map((weather: any) => {
+            {weatherProps?.data.slice(1, 6).map((weather: any, index) => {
               return (
                 <div className="flex justify-between">
                   <DailyWeather
-                    date={weather.valid_date}
+                    date={index === 0 ? "Tomorrow" : weather.valid_date}
                     icon={weather.weather.description}
                     max={weather.app_max_temp}
                     min={weather.app_min_temp}
