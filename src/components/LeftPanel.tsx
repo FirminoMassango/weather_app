@@ -22,22 +22,22 @@ function LeftPanel(props: any) {
       </div>
       <div className="flex flex-col justify-center content-center ">
         <div id="2" className="flex justify-center my-5">
-          {props.description === "clear sky" && <ClearSkyIcon />}
-          {props.description === "few clouds" && <FewCloudsIcon />}
-          {props.description === "scattered clouds" && <ScatteredCloudsIcon />}
-          {props.description === "overcast clouds" && <ScatteredCloudsIcon />}
-          {props.description === "broken clouds" && <BrokenCloudsIcon />}
-          {props.description === "shower rain" && <ShowerRainIcon />}
-          {props.description === "rain" && <RainIcon />}
-          {props.description === "heavy rain" && <HeavyRainIcon />}
-          {props.description === "light rain" && <LightRainIcon />}
-          {props.description === "thunderstorm" && <ThunderstormIcon />}
-          {props.description === "snow" && <SnowIcon />}
-          {props.description === "mist" && <MistIcon />}
+          {props.description === "Clear sky" && <ClearSkyIcon />}
+          {props.description === "Few clouds" && <FewCloudsIcon />}
+          {props.description === "Scattered clouds" && <ScatteredCloudsIcon />}
+          {props.description === "Overcast clouds" && <ScatteredCloudsIcon />}
+          {props.description === "Broken clouds" && <BrokenCloudsIcon />}
+          {props.description === "Shower rain" && <ShowerRainIcon />}
+          {props.description === "Rain" && <RainIcon />}
+          {props.description === "Heavy rain" && <HeavyRainIcon />}
+          {props.description === "Light rain" && <LightRainIcon />}
+          {props.description === "Thunderstorm" && <ThunderstormIcon />}
+          {props.description === "Snow" && <SnowIcon />}
+          {props.description === "Mist" && <MistIcon />}
         </div>
         <div id="3" className="text-center mb-10">
-          <span className="text-6xl">{props.temp}</span>
-          <span className="text-2xl"> °K</span>
+          <span className="text-6xl">{Math.floor(props.temp)}</span>
+          <span className="text-2xl"> °C</span>
         </div>
         <div id="4" className="text-center mb-10">
           <span className="text-3xl text-dark-100">{props.description}</span>

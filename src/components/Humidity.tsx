@@ -5,10 +5,10 @@ function Humidity(props: any) {
     "bg-progress h-2 rounded-lg"
   );
 
-  const humidity: number = props.humidity;
+  const humidity: number = parseInt(props.humidity) + 1;
 
   useEffect(() => {
-    if (humidity === 0) {
+    if (humidity == 0) {
       setProgressFill("bg-white h-2 rounded-lg");
     } else if (humidity <= 10) {
       setProgressFill("bg-progress w-1/12 h-2 rounded-lg");
@@ -28,7 +28,7 @@ function Humidity(props: any) {
       setProgressFill("bg-progress w-4/5 h-2 rounded-lg");
     } else if (humidity <= 90) {
       setProgressFill("bg-progress w-11/12 h-2 rounded-lg");
-    } else if (humidity === 100) {
+    } else if (humidity == 100) {
       setProgressFill("bg-progress w-full h-2 rounded-lg");
     }
   }, []);

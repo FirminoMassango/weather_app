@@ -12,17 +12,18 @@ import LeftPanel from "./components/LeftPanel";
 
 function App() {
   const [city, setCity] = useState("Maputo");
-  const [humidity, setHumidity] = useState<number>(0);
+  const [units, setUnits] = useState("metric");
+  const [humidity, setHumidity] = useState<any>(0);
   const [weatherProps, setWeatherProps] = useState<RootObject>();
 
-  const url = `https://api.openweathermap.org/data/2.5/forecast?id=524901&q=${city}&appid=${token}`;
-
+  const url = `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`;
   async function fetchWeatherProps() {
     const response = await fetch(url);
     const weather_props = await response.json();
-    const humidity: number = weather_props.list[0].main.humidity;
+    const humidity = weatherProps?.data[0].rh;
     setHumidity(humidity);
     setWeatherProps(weather_props);
+    console.log(humidity);
   }
 
   // const degrees:  = Math.floor(
@@ -40,9 +41,9 @@ function App() {
         className="w-full md:w-1/3  bg-left text-white font-raleway"
       >
         <LeftPanel
-          temp={weatherProps?.list[0].main.temp_max}
-          description={weatherProps?.list[0].weather[0].description}
-          city={weatherProps?.city.name}
+          temp={weatherProps?.data[0].app_max_temp}
+          description={weatherProps?.data[0].weather.description}
+          city={weatherProps?.city_name}
         />
       </div>
       <div id="right" className="w-full md:w-2/3 bg-right font-raleway">
@@ -51,14 +52,14 @@ function App() {
             <SwitchScale />
           </header>
           <main className="grid grid-rows-4 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-5">
-            {weatherProps?.list.slice(1, 5).map((weather: any) => {
+            {weatherProps?.data.slice(1, 5).map((weather: any) => {
               return (
                 <div className="flex justify-between">
                   <DailyWeather
-                    date={weather.dt_txt}
-                    icon={weather.weather[0].description}
-                    max={weather.main.temp_max}
-                    min={weather.main.temp_min}
+                    date={weather.valid_date}
+                    icon={weather.weather.description}
+                    max={weather.app_max_temp}
+                    min={weather.app_min_temp}
                   />
                 </div>
               );
@@ -68,12 +69,16 @@ function App() {
             Today’s Highlights
           </h1>
           <div className="grid grid-rows-2 md:grid-rows-1 grid-flow-col gap-10">
-            <WindStatus windSpeed={weatherProps?.list[0].wind.speed} />
-            <Humidity humidity={humidity} />
+            <WindStatus
+              windSpeed={weatherProps?.data[0].wind_spd}
+              windDirection={weatherProps?.data[0].wind_cdir}
+              windDirectionDeg={weatherProps?.data[0].wind_dir}
+            />
+            <Humidity humidity={weatherProps?.data[0].rh} />
           </div>
           <div className="w-full my-10 grid grid-rows-2 md:grid-rows-1 grid-flow-col gap-10">
-            <Visibility visibility={weatherProps?.list[0].visibility} />
-            <AirPressure airPressure={weatherProps?.list[0].main.pressure} />
+            <Visibility visibility={weatherProps?.data[0].vis} />
+            <AirPressure airPressure={weatherProps?.data[0].pres} />
           </div>
         </div>
         <footer className="text-footer text-center mb-5">

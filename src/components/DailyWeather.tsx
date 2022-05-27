@@ -12,29 +12,29 @@ import SnowIcon from "./cloud_icons/sm/SnowIcon-sm";
 import ThunderstormIcon from "./cloud_icons/sm/ThunderstormIcon-sm";
 
 function DailyWeather(props: any) {
-  const celcius_max = props.max - 273.15;
-  const celcius_min = props.min - 273.15;
+  // const celcius_max = props.max - 273.15;
+  // const celcius_min = props.min - 273.15;
 
   return (
     <div className="bg-left w-full h-44 flex flex-col justify-center ">
       <header className="text-header text-center">{props.date}</header>
       <main className="flex justify-center">
-        {props.icon === "clear sky" && <ClearSkyIcon />}
-        {props.icon === "few clouds" && <FewCloudsIcon />}
-        {props.icon === "scattered clouds" && <ScatteredCloudsIcon />}
-        {props.icon === "overcast clouds" && <ScatteredCloudsIcon />}
-        {props.icon === "broken clouds" && <BrokenCloudsIcon />}
-        {props.icon === "shower rain" && <ShowerRainIcon />}
-        {props.icon === "rain" && <RainIcon />}
-        {props.icon === "light rain" && <LightRainIcon />}
-        {props.description === "heavy rain" && <HeavyRainIcon />}
-        {props.icon === "thunderstorm" && <ThunderstormIcon />}
-        {props.icon === "snow" && <SnowIcon />}
-        {props.icon === "mist" && <MistIcon />}
+        {props.icon === "Clear Sky" && <ClearSkyIcon />}
+        {props.icon === "Few clouds" && <FewCloudsIcon />}
+        {props.icon === "Scattered clouds" && <ScatteredCloudsIcon />}
+        {props.icon === "Overcast clouds" && <ScatteredCloudsIcon />}
+        {props.icon === "Broken clouds" && <BrokenCloudsIcon />}
+        {props.icon === "Shower rain" && <ShowerRainIcon />}
+        {props.icon === "Rain" && <RainIcon />}
+        {props.icon === "Light rain" && <LightRainIcon />}
+        {props.description === "Heavy rain" && <HeavyRainIcon />}
+        {props.icon === "Thunderstorm" && <ThunderstormIcon />}
+        {props.icon === "Snow" && <SnowIcon />}
+        {props.icon === "Mist" && <MistIcon />}
       </main>
       <footer className="flex justify-between  text-center mx-7">
-        <span className="text-maxdegree">{Math.round(celcius_max)} °C</span>
-        <span className="text-mindegree">{Math.round(celcius_min)} °C</span>
+        <span className="text-maxdegree">{Math.round(props.max)} °C</span>
+        <span className="text-mindegree">{Math.round(props.min)} °C</span>
       </footer>
     </div>
   );
