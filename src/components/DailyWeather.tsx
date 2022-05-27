@@ -1,4 +1,3 @@
-import { useState } from "react";
 import BrokenCloudsIcon from "./cloud_icons/sm/BrokenClouds-sm";
 import ClearSkyIcon from "./cloud_icons/sm/ClearSkyIcon-sm";
 import FewCloudsIcon from "./cloud_icons/sm/FewCloudsIcon-sm";
