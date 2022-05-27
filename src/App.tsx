@@ -51,8 +51,8 @@ function App() {
           <header className="flex justify-end mb-5">
             <SwitchScale />
           </header>
-          <main className="grid grid-rows-4 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-5">
-            {weatherProps?.data.slice(1, 5).map((weather: any) => {
+          <main className="grid grid-rows-3 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-5">
+            {weatherProps?.data.slice(1, 6).map((weather: any) => {
               return (
                 <div className="flex justify-between">
                   <DailyWeather

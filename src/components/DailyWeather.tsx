@@ -32,7 +32,7 @@ function DailyWeather(props: any) {
         {props.icon === "Snow" && <SnowIcon />}
         {props.icon === "Mist" && <MistIcon />}
       </main>
-      <footer className="flex justify-between  text-center mx-7">
+      <footer className="flex justify-between  text-center mx-3">
         <span className="text-maxdegree">{Math.round(props.max)} °C</span>
         <span className="text-mindegree">{Math.round(props.min)} °C</span>
       </footer>
