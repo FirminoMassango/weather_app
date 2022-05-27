@@ -11,6 +11,12 @@ import SnowIcon from "./cloud_icons/lg/SnowIcon";
 import ThunderstormIcon from "./cloud_icons/lg/ThunderstormIcon";
 
 function LeftPanel(props: any) {
+  const date: Date = new Date(props.date);
+  const weekDay: string = date.toString().substring(0, 3) + ", ";
+  const day: string = date.toString().substring(8, 10) + " ";
+  const month: string = date.toString().substring(4, 7);
+  const fullDate: string = weekDay + day + month;
+
   return (
     <div className="p-10 bg-hero-pattern bg-50% bg-no-repeat bg-top-4 bg-opacity-10">
       <div></div>
@@ -43,7 +49,11 @@ function LeftPanel(props: any) {
           <span className="text-3xl text-dark-100">{props.description}</span>
         </div>
         <div id="5" className="flex flex-col text-center text-dark-200 mb-10">
-          <span>Today • Fri, 5 Jun</span>
+          <div>
+            <span>Today</span>
+            <span className="mx-4">•</span>
+            <span>{fullDate}</span>
+          </div>
           <div className="flex justify-center items-center mt-5">
             <span className="font-semibold">{props.city}</span>
           </div>
