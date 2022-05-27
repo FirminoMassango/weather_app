@@ -23,7 +23,7 @@ function SearchForPlacesDrawer() {
 
   //   console.log(isDrawerActive);
   return (
-    <div>
+    <div className="h-full">
       <div className="p-10 relative flex justify-center">
         <div id="1" className="w-full my-10 flex justify-between">
           <div className="w-3/4 mr-2 flex justify-center items-center">
