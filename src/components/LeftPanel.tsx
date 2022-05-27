@@ -9,20 +9,35 @@ import ScatteredCloudsIcon from "./cloud_icons/lg/ScatteredCloudsIcon";
 import ShowerRainIcon from "./cloud_icons/lg/ShowerRainIcon";
 import SnowIcon from "./cloud_icons/lg/SnowIcon";
 import ThunderstormIcon from "./cloud_icons/lg/ThunderstormIcon";
+import useActivateDrawerStore from "../stores/activeDrawer";
 
 function LeftPanel(props: any) {
+  const isDrawerActive = useActivateDrawerStore(
+    (state) => state.isDrawerActive
+  );
+  const activateDrawer = useActivateDrawerStore(
+    (state) => state.activateDrawer
+  );
   const date: Date = new Date(props.date);
   const weekDay: string = date.toString().substring(0, 3) + ", ";
   const day: string = date.toString().substring(8, 10) + " ";
   const month: string = date.toString().substring(4, 7);
   const fullDate: string = weekDay + day + month;
 
+  function handleOpenDrawer() {
+    activateDrawer(!isDrawerActive);
+  }
+
   return (
     <div className="p-10 bg-hero-pattern bg-50% bg-no-repeat bg-top-4 bg-opacity-10">
-      <div></div>
       <div id="1" className="flex justify-between">
-        <button className="bg-secondary px-5">Search for places</button>
-        <button className="bg-secondary w-10 h-10 rounded-full flex justify-center items-center">
+        <button className="bg-secondary px-5" onClick={handleOpenDrawer}>
+          Search for places
+        </button>
+        <button
+          className="bg-secondary w-10 h-10 rounded-full flex justify-center items-center"
+          title="My Location"
+        >
           <span className="material-icons text-2xl">my_location</span>
         </button>
       </div>

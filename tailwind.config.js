@@ -13,7 +13,9 @@ module.exports = {
       'footer': '#A09FB1',
       'secondary': '#6E707A',
       'dark-100': '#A09FB1',
-      'dark-200': '#88869D'
+      'dark-200': '#88869D',
+      'primary-search': '#616475',
+      'search-button': '#3C47E9'
 
     },
     backgroundPosition: {

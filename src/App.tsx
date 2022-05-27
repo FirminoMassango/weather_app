@@ -9,26 +9,28 @@ import WindStatus from "./components/WindStatus";
 import { token } from "./helper/token";
 import { RootObject } from "./helper/Type";
 import LeftPanel from "./components/LeftPanel";
+import SearchForPlacesDrawer from "./components/SearchForPlacesDrawer";
+import useSetCityStore from "./stores/setCity";
+import useActivateDrawerStore from "./stores/activeDrawer";
+import Footer from "./components/Footer";
 
 function App() {
-  const [city, setCity] = useState("Maputo");
-  const [units, setUnits] = useState("metric");
-  const [humidity, setHumidity] = useState<any>(0);
   const [weatherProps, setWeatherProps] = useState<RootObject>();
+  const city = useSetCityStore((state) => state.city);
+  const isDrawerActive = useActivateDrawerStore(
+    (state) => state.isDrawerActive
+  );
 
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`;
   async function fetchWeatherProps() {
     const response = await fetch(url);
     const weather_props = await response.json();
-    const humidity = weatherProps?.data[0].rh;
-    setHumidity(humidity);
     setWeatherProps(weather_props);
-    console.log(humidity);
   }
 
   useEffect(() => {
     fetchWeatherProps();
-  }, []);
+  }, [city]);
 
   return (
     <div className="flex flex-col md:flex-row h-full ">
@@ -36,12 +38,16 @@ function App() {
         id-="left"
         className="w-full md:w-1/3  bg-left text-white font-raleway"
       >
-        <LeftPanel
-          temp={weatherProps?.data[0].app_max_temp}
-          description={weatherProps?.data[0].weather.description}
-          date={weatherProps?.data[0].datetime}
-          city={weatherProps?.city_name}
-        />
+        {isDrawerActive ? (
+          <LeftPanel
+            temp={weatherProps?.data[0].app_max_temp}
+            description={weatherProps?.data[0].weather.description}
+            date={weatherProps?.data[0].datetime}
+            city={weatherProps?.city_name}
+          />
+        ) : (
+          <SearchForPlacesDrawer />
+        )}
       </div>
       <div id="right" className="w-full md:w-2/3 bg-right font-raleway">
         <div id="container" className="mx-5 md:mx-32 my-10">
@@ -78,11 +84,7 @@ function App() {
             <AirPressure airPressure={weatherProps?.data[0].pres} />
           </div>
         </div>
-        <footer className="text-footer text-center mb-5">
-          created by{" "}
-          <span className="underline font-semibold">Firmino Massango</span> -
-          devChallenges.io
-        </footer>
+        <Footer />
       </div>
     </div>
   );
