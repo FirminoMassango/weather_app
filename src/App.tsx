@@ -26,10 +26,6 @@ function App() {
     console.log(humidity);
   }
 
-  // const degrees:  = Math.floor(
-  //   weatherProps.list[0].main.temp_max - 273.15
-  // );
-
   useEffect(() => {
     fetchWeatherProps();
   }, []);
@@ -43,6 +39,7 @@ function App() {
         <LeftPanel
           temp={weatherProps?.data[0].app_max_temp}
           description={weatherProps?.data[0].weather.description}
+          date={weatherProps?.data[0].datetime}
           city={weatherProps?.city_name}
         />
       </div>
