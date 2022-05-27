@@ -39,14 +39,14 @@ function App() {
         className="w-full md:w-1/3  bg-left text-white font-raleway"
       >
         {isDrawerActive ? (
+          <SearchForPlacesDrawer />
+        ) : (
           <LeftPanel
             temp={weatherProps?.data[0].app_max_temp}
             description={weatherProps?.data[0].weather.description}
             date={weatherProps?.data[0].datetime}
             city={weatherProps?.city_name}
           />
-        ) : (
-          <SearchForPlacesDrawer />
         )}
       </div>
       <div id="right" className="w-full md:w-2/3 bg-right font-raleway">

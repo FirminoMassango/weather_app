@@ -9,8 +9,12 @@ import ScatteredCloudsIcon from "./cloud_icons/sm/ScatteredCloudsIcon-sm";
 import ShowerRainIcon from "./cloud_icons/sm/ShowerRainIcon-sm";
 import SnowIcon from "./cloud_icons/sm/SnowIcon-sm";
 import ThunderstormIcon from "./cloud_icons/sm/ThunderstormIcon-sm";
+import useChangeDegreeStore from "../stores/changeDegreeUnit";
 
 function DailyWeather(props: any) {
+  const isDegreeUnitInCelsius = useChangeDegreeStore(
+    (state) => state.isDegreeInCelsius
+  );
   const date: Date = new Date(props.date);
   const weekDay: string = date.toString().substring(0, 3) + ", ";
   const day: string = date.toString().substring(8, 10) + " ";
@@ -36,10 +40,21 @@ function DailyWeather(props: any) {
         {props.icon === "Snow" && <SnowIcon />}
         {props.icon === "Mist" && <MistIcon />}
       </main>
-      <footer className="flex justify-between  text-center mx-3">
-        <span className="text-maxdegree">{Math.round(props.max)} °C</span>
-        <span className="text-mindegree">{Math.round(props.min)} °C</span>
-      </footer>
+      {isDegreeUnitInCelsius ? (
+        <footer className="flex justify-between  text-center mx-3">
+          <span className="text-maxdegree">{Math.round(props.max)} °C</span>
+          <span className="text-mindegree">{Math.round(props.min)} °C</span>
+        </footer>
+      ) : (
+        <footer className="flex justify-between  text-center mx-3">
+          <span className="text-maxdegree">
+            {Math.round(props.max * 1.8 + 32)} °F
+          </span>
+          <span className="text-mindegree">
+            {Math.round(props.min * 1.8 + 32)} °F
+          </span>
+        </footer>
+      )}
     </div>
   );
 }

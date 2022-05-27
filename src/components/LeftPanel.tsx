@@ -10,6 +10,7 @@ import ShowerRainIcon from "./cloud_icons/lg/ShowerRainIcon";
 import SnowIcon from "./cloud_icons/lg/SnowIcon";
 import ThunderstormIcon from "./cloud_icons/lg/ThunderstormIcon";
 import useActivateDrawerStore from "../stores/activeDrawer";
+import useChangeDegreeStore from "../stores/changeDegreeUnit";
 
 function LeftPanel(props: any) {
   const isDrawerActive = useActivateDrawerStore(
@@ -17,6 +18,9 @@ function LeftPanel(props: any) {
   );
   const activateDrawer = useActivateDrawerStore(
     (state) => state.activateDrawer
+  );
+  const isDegreeUnitInCelsius = useChangeDegreeStore(
+    (state) => state.isDegreeInCelsius
   );
   const date: Date = new Date(props.date);
   const weekDay: string = date.toString().substring(0, 3) + ", ";
@@ -56,10 +60,21 @@ function LeftPanel(props: any) {
           {props.description === "Snow" && <SnowIcon />}
           {props.description === "Mist" && <MistIcon />}
         </div>
-        <div id="3" className="text-center mb-10">
-          <span className="text-6xl">{Math.floor(props.temp)}</span>
-          <span className="text-2xl"> °C</span>
-        </div>
+
+        {isDegreeUnitInCelsius ? (
+          <div id="3" className="text-center mb-10">
+            <span className="text-6xl">{Math.floor(props.temp)}</span>
+            <span className="text-2xl"> °C</span>
+          </div>
+        ) : (
+          <div id="3" className="text-center mb-10">
+            <span className="text-6xl">
+              {Math.floor(props.temp * 1.8 + 32)}
+            </span>
+            <span className="text-2xl"> °F</span>
+          </div>
+        )}
+
         <div id="4" className="text-center mb-10">
           <span className="text-3xl text-dark-100">{props.description}</span>
         </div>
