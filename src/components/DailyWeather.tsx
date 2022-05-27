@@ -12,12 +12,17 @@ import SnowIcon from "./cloud_icons/sm/SnowIcon-sm";
 import ThunderstormIcon from "./cloud_icons/sm/ThunderstormIcon-sm";
 
 function DailyWeather(props: any) {
-  // const celcius_max = props.max - 273.15;
-  // const celcius_min = props.min - 273.15;
+  const date: Date = new Date(props.date);
+  const weekDay: string = date.toString().substring(0, 3) + ", ";
+  const day: string = date.toString().substring(8, 10) + " ";
+  const month: string = date.toString().substring(4, 7);
+  const fullDate: string = weekDay + day + month;
 
   return (
     <div className="bg-left w-full h-44 flex flex-col justify-center ">
-      <header className="text-header text-center">{props.date}</header>
+      <header className="text-header text-center">
+        {props.date === "Tomorrow" ? "Tomorrow" : fullDate}
+      </header>
       <main className="flex justify-center">
         {props.icon === "Clear Sky" && <ClearSkyIcon />}
         {props.icon === "Few clouds" && <FewCloudsIcon />}
