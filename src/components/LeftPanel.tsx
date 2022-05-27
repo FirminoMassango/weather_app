@@ -45,9 +45,6 @@ function LeftPanel(props: any) {
         <div id="5" className="flex flex-col text-center text-dark-200 mb-10">
           <span>Today • Fri, 5 Jun</span>
           <div className="flex justify-center items-center mt-5">
-            <span className="material-icons text-lg text-dark-200  mr-1">
-              location_pin
-            </span>
             <span className="font-semibold">{props.city}</span>
           </div>
         </div>
