@@ -16,7 +16,7 @@ function App() {
   const [humidity, setHumidity] = useState<any>(0);
   const [weatherProps, setWeatherProps] = useState<RootObject>();
 
-  const url = `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`;
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`;
   async function fetchWeatherProps() {
     const response = await fetch(url);
     const weather_props = await response.json();
@@ -74,7 +74,7 @@ function App() {
               windDirection={weatherProps?.data[0].wind_cdir}
               windDirectionDeg={weatherProps?.data[0].wind_dir}
             />
-            <Humidity humidity={weatherProps?.data[0].rh} />
+            <Humidity humidity={weatherProps?.data[0].rh as number} />
           </div>
           <div className="w-full my-10 grid grid-rows-2 md:grid-rows-1 grid-flow-col gap-10">
             <Visibility visibility={weatherProps?.data[0].vis} />
