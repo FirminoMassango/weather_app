@@ -5,7 +5,15 @@ function WindStatus(props: any) {
       <main className="font-black  text-white text-center my-6">
         <span className="text-5xl">{props.windSpeed}</span> <span>m/s</span>
       </main>
-      <footer className="text-white text-center">{props.windDirection}</footer>
+      <footer className="text-white text-center flex justify-center content-center">
+        <span
+          className="material-icons text-lg text-dark-200  mr-5"
+          style={{ transform: `rotate(${props.windDirectionDeg}deg)` }}
+        >
+          send
+        </span>
+        <span>{props.windDirection}</span>
+      </footer>
     </div>
   );
 }
