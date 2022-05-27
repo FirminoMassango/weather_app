@@ -5,7 +5,7 @@ function Humidity(props: any) {
     "bg-progress h-2 rounded-lg"
   );
 
-  const humidity: number = parseInt(props.humidity) + 1;
+  const humidity = props.humidity;
 
   useEffect(() => {
     if (humidity == 0) {
