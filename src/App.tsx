@@ -36,7 +36,7 @@ function App() {
     <div className="flex flex-col md:flex-row h-full ">
       <div
         id-="left"
-        className="w-full md:w-1/3  bg-left text-white font-raleway"
+        className="h-screen md:w-1/3  bg-left text-white font-raleway"
       >
         {isDrawerActive ? (
           <SearchForPlacesDrawer />

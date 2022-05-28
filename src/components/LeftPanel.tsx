@@ -47,7 +47,7 @@ function LeftPanel(props: any) {
       </div>
       <div className="flex flex-col justify-center content-center ">
         <div id="2" className="flex justify-center my-5">
-          {props.description === "Clear sky" && <ClearSkyIcon />}
+          {props.description === "Clear Sky" && <ClearSkyIcon />}
           {props.description === "Few clouds" && <FewCloudsIcon />}
           {props.description === "Scattered clouds" && <ScatteredCloudsIcon />}
           {props.description === "Overcast clouds" && <ScatteredCloudsIcon />}
