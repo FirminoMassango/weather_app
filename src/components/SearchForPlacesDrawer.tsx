@@ -5,6 +5,7 @@ import useActivateDrawerStore from "../stores/activeDrawer";
 function SearchForPlacesDrawer() {
   const cityName = useSetCityStore((state) => state.city);
   const [city, setCity] = useState<string>(cityName);
+  const [cities, setCities] = useState<string[]>();
   const searchCity = useSetCityStore((state) => state.setCity);
   const isDrawerActive = useActivateDrawerStore(
     (state) => state.isDrawerActive
@@ -15,6 +16,8 @@ function SearchForPlacesDrawer() {
 
   function handleClick() {
     searchCity(city);
+    // setCities([...cities, city]);
+    // localStorage.setItem("cities", cities.toString());
     localStorage.setItem("cities", city);
   }
 
