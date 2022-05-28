@@ -15,6 +15,7 @@ function SearchForPlacesDrawer() {
 
   function handleClick() {
     searchCity(city);
+    localStorage.setItem("cities", city);
   }
 
   function handleCloseDrawer() {
@@ -56,9 +57,8 @@ function SearchForPlacesDrawer() {
           <span className="material-icons">close</span>
         </button>
       </div>
-      <ul className="p-2 md:p-10">
-        <li className="pb-5">Maputo</li>
-        <li>London</li>
+      <ul className="p-2 mb-5 mx-2 flex items-center hover:border hover:border-primary-search md:mx-10">
+        <li className="">{localStorage.getItem("cities")}</li>
       </ul>
     </div>
   );

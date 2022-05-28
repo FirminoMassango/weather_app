@@ -11,6 +11,7 @@ import SnowIcon from "./cloud_icons/lg/SnowIcon";
 import ThunderstormIcon from "./cloud_icons/lg/ThunderstormIcon";
 import useActivateDrawerStore from "../stores/activeDrawer";
 import useChangeDegreeStore from "../stores/changeDegreeUnit";
+import SleetIcon from "./cloud_icons/lg/SleetIcon";
 
 function LeftPanel(props: any) {
   const isDrawerActive = useActivateDrawerStore(
@@ -47,18 +48,35 @@ function LeftPanel(props: any) {
       </div>
       <div className="flex flex-col justify-center content-center ">
         <div id="2" className="flex justify-center my-5">
-          {props.description === "Clear Sky" && <ClearSkyIcon />}
-          {props.description === "Few clouds" && <FewCloudsIcon />}
-          {props.description === "Scattered clouds" && <ScatteredCloudsIcon />}
-          {props.description === "Overcast clouds" && <ScatteredCloudsIcon />}
-          {props.description === "Broken clouds" && <BrokenCloudsIcon />}
-          {props.description === "Shower rain" && <ShowerRainIcon />}
-          {props.description === "Rain" && <RainIcon />}
+          {props.icon === "Clear Sky" && <ClearSkyIcon />}
+          {props.icon === "Few clouds" && <FewCloudsIcon />}
+          {props.icon === "Scattered clouds" && <ScatteredCloudsIcon />}
+          {props.icon === "Overcast clouds" && <ScatteredCloudsIcon />}
+          {props.icon === "Broken clouds" && <BrokenCloudsIcon />}
+          {props.icon === "Shower rain" && <ShowerRainIcon />}
+          {props.icon === "Rain" && <RainIcon />}
+          {(props.icon === "Light rain" && <LightRainIcon />) ||
+            (props.icon === "Freezing rain" && <LightRainIcon />) ||
+            (props.icon === "Light shower rain" && <LightRainIcon />) ||
+            (props.icon === "Heavy shower rain" && <LightRainIcon />)}
           {props.description === "Heavy rain" && <HeavyRainIcon />}
-          {props.description === "Light rain" && <LightRainIcon />}
-          {props.description === "Thunderstorm" && <ThunderstormIcon />}
-          {props.description === "Snow" && <SnowIcon />}
-          {props.description === "Mist" && <MistIcon />}
+          {(props.icon === "Thunderstorm with light rain" && (
+            <ThunderstormIcon />
+          )) ||
+            (props.icon === "Thunderstorm with rain" && <ThunderstormIcon />) ||
+            (props.icon === " 	Thunderstorm with heavy rain" && (
+              <ThunderstormIcon />
+            ))}
+          {props.icon === "Snow" && <SnowIcon />}
+          {props.icon === "Heavy snow shower" && <SnowIcon />}
+          {(props.icon === "Sleet" && <SleetIcon />) ||
+            (props.icon === "Heavy sleet" && <SleetIcon />)}
+          {(props.icon === "Mist" && <MistIcon />) ||
+            (props.icon === "Smoke" && <MistIcon />) ||
+            (props.icon === "Haze" && <MistIcon />) ||
+            (props.icon === "Sand/dust" && <MistIcon />) ||
+            (props.icon === "Fog" && <MistIcon />) ||
+            (props.icon === "Freezing Fog" && <MistIcon />)}
         </div>
 
         {isDegreeUnitInCelsius ? (

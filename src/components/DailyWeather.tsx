@@ -10,6 +10,7 @@ import ShowerRainIcon from "./cloud_icons/sm/ShowerRainIcon-sm";
 import SnowIcon from "./cloud_icons/sm/SnowIcon-sm";
 import ThunderstormIcon from "./cloud_icons/sm/ThunderstormIcon-sm";
 import useChangeDegreeStore from "../stores/changeDegreeUnit";
+import SleetIcon from "./cloud_icons/sm/SleetIcon-sm";
 
 function DailyWeather(props: any) {
   const isDegreeUnitInCelsius = useChangeDegreeStore(
@@ -34,11 +35,29 @@ function DailyWeather(props: any) {
         {props.icon === "Broken clouds" && <BrokenCloudsIcon />}
         {props.icon === "Shower rain" && <ShowerRainIcon />}
         {props.icon === "Rain" && <RainIcon />}
-        {props.icon === "Light rain" && <LightRainIcon />}
-        {props.description === "Heavy rain" && <HeavyRainIcon />}
-        {props.icon === "Thunderstorm" && <ThunderstormIcon />}
+        {(props.icon === "Light rain" && <LightRainIcon />) ||
+          (props.icon === "Moderate rain" && <LightRainIcon />) ||
+          (props.icon === "Freezing rain" && <LightRainIcon />) ||
+          (props.icon === "Light shower rain" && <LightRainIcon />) ||
+          (props.icon === "Heavy shower rain" && <LightRainIcon />)}
+        {props.icon === "Heavy rain" && <HeavyRainIcon />}
+        {(props.icon === "Thunderstorm with light rain" && (
+          <ThunderstormIcon />
+        )) ||
+          (props.icon === "Thunderstorm with rain" && <ThunderstormIcon />) ||
+          (props.icon === " 	Thunderstorm with heavy rain" && (
+            <ThunderstormIcon />
+          ))}
         {props.icon === "Snow" && <SnowIcon />}
-        {props.icon === "Mist" && <MistIcon />}
+        {props.icon === "Heavy snow shower" && <SnowIcon />}
+        {(props.icon === "Sleet" && <SleetIcon />) ||
+          (props.icon === "Heavy sleet" && <SleetIcon />)}
+        {(props.icon === "Mist" && <MistIcon />) ||
+          (props.icon === "Smoke" && <MistIcon />) ||
+          (props.icon === "Haze" && <MistIcon />) ||
+          (props.icon === "Sand/dust" && <MistIcon />) ||
+          (props.icon === "Fog" && <MistIcon />) ||
+          (props.icon === "Freezing Fog" && <MistIcon />)}
       </main>
       {isDegreeUnitInCelsius ? (
         <footer className="flex justify-between  text-center mx-3">
