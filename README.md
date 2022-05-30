@@ -8,15 +8,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://random-quote-generator-firminomassango.vercel.app/">
+    <a href="https://weather-app-firminomassango.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/FirminoMassango/random-quote-generator">
+    <a href="https://github.com/FirminoMassango/weather_app">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
+    <a href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">
       Challenge
     </a>
   </h3>
@@ -46,17 +46,25 @@
 <!-- Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering: -->
 
 ## User Story
-- I can see a random quote
-- I generate a new random quote
-- When I select quote author, I can see a list of quotes from them
-- I can see quote genre under the author
+- I can see city weather as default, preferably my current location
+-  I can search for city
+-  I can see weather of today and the next 5 days
+-  I can see the date and location of the weather
+-  I can see according to image for each type of weather
+-  I can see the min and max degree each day
+-  I can see wind status and wind direction
+-  I can see humidity percentage
+-  I can see a visibility indicator
+-  I can see the air pressure number
+-  I can request my current location weather
+-  I can convert temperature in Celcius to Fahrenheit and vice versa
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
+- [Zustand](
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
