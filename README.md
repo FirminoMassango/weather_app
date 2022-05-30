@@ -73,7 +73,7 @@
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This component was created as a submission to a DevChallenges (https://devchallenges.io/challenges) challenge. The challenge(https://devchallenges.io/challenges/ohgVTyJCbm5OZyTB2gNY) was to build an application to complete the given user stories.
+This component was created as a submission to a DevChallenges (https://devchallenges.io/challenges) challenge. The challenge(https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) was to build an application to complete the given user stories.
 
 ## How To Use
 
@@ -83,7 +83,7 @@ To clone and run this application, you'll need Git(https://git-scm.com) and Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/FirminoMassango/random-quote-generator
+$ git clone https://github.com/FirminoMassango/weather_app
 # Install dependencies
 $ npm install
 
