@@ -25,6 +25,12 @@ function SearchForPlacesDrawer() {
     activateDrawer(!isDrawerActive);
   }
 
+  console.log(
+    localStorage.getItem(city) +
+      " || " +
+      typeof localStorage.getItem(city.toString())
+  );
+
   return (
     <div className="w-full h-full ease-in-out">
       <div className="w-full px-2 pt-10 md:px-10 flex relative justify-center">
