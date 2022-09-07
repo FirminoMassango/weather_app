@@ -13,6 +13,7 @@ import SearchForPlacesDrawer from "./components/SearchForPlacesDrawer";
 import useSetCityStore from "./stores/setCity";
 import useActivateDrawerStore from "./stores/activeDrawer";
 import Footer from "./components/Footer";
+import useCurrentCoordinatesStore from "./stores/currentLocation";
 
 function App() {
   const [weatherProps, setWeatherProps] = useState<RootObject>();
@@ -20,8 +21,32 @@ function App() {
   const isDrawerActive = useActivateDrawerStore(
     (state) => state.isDrawerActive
   );
+  const currentCoordinates = useCurrentCoordinatesStore(
+    (state) => state.coordinates
+  );
+  const [latitude, setLatitude] = useState(currentCoordinates.latitude);
+  const [longitude, setLongitude] = useState(currentCoordinates.longitude);
+  const [url, setURL] = useState<string>(
+    `https://api.weatherbit.io/v2.0/forecast/daily?${
+      currentCoordinates.latitude === 0
+        ? "city=" + city
+        : "lat=" + latitude + "&lon=" + longitude
+    }&key=${token}`
+  );
 
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`;
+  // useEffect(() => {
+  // console.log(currentCoordinates);
+  // if (currentCoordinates.latitude === 0) {
+  //   setURL(
+  //     `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`
+  //   );
+  // } else {
+  //   setURL(
+  //     `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${token}`
+  //   );
+  // }
+  // }, [currentCoordinates]);
+
   async function fetchWeatherProps() {
     const response = await fetch(url);
     const weather_props = await response.json();
@@ -30,7 +55,7 @@ function App() {
 
   useEffect(() => {
     fetchWeatherProps();
-  }, [city]);
+  }, [city, currentCoordinates.latitude]);
 
   return (
     <div className="flex flex-col md:flex-row h-full">

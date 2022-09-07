@@ -6,7 +6,7 @@ type State = {
 };
 
 const useSetCityStore = create<State>((set) => ({
-  city: "Maputo",
+  city: "Inhambane",
   setCity: (city: string) => {
     set((state) => ({ city: city }));
   },

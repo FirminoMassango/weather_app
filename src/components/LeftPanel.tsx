@@ -11,7 +11,9 @@ import SnowIcon from "./cloud_icons/lg/SnowIcon";
 import ThunderstormIcon from "./cloud_icons/lg/ThunderstormIcon";
 import useActivateDrawerStore from "../stores/activeDrawer";
 import useChangeDegreeStore from "../stores/changeDegreeUnit";
+import useCurrentCoordinatesStore from "../stores/currentLocation";
 import SleetIcon from "./cloud_icons/lg/SleetIcon";
+import { useEffect, useState } from "react";
 
 function LeftPanel(props: any) {
   const isDrawerActive = useActivateDrawerStore(
@@ -23,6 +25,9 @@ function LeftPanel(props: any) {
   const isDegreeUnitInCelsius = useChangeDegreeStore(
     (state) => state.isDegreeInCelsius
   );
+  const setCoordinates = useCurrentCoordinatesStore(
+    (state) => state.setCoordinates
+  );
   const date: Date = new Date(props.date);
   const weekDay: string = date.toString().substring(0, 3) + ", ";
   const day: string = date.toString().substring(8, 10) + " ";
@@ -31,6 +36,14 @@ function LeftPanel(props: any) {
 
   function handleOpenDrawer() {
     activateDrawer(!isDrawerActive);
+  }
+
+  function setCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(handleCurrentUserLocation);
+  }
+  function handleCurrentUserLocation({ coords }: any) {
+    console.log(coords);
+    setCoordinates({ latitude: coords.latitude, longitude: coords.longitude });
   }
 
   return (
@@ -42,6 +55,7 @@ function LeftPanel(props: any) {
         <button
           className="bg-secondary w-10 h-10 rounded-full flex justify-center items-center"
           title="My Location"
+          onClick={setCurrentLocation}
         >
           <span className="material-icons text-2xl">my_location</span>
         </button>
