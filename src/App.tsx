@@ -58,7 +58,7 @@ function App() {
   }, [city, currentCoordinates.latitude]);
 
   return (
-    <div className="flex flex-col md:flex-row h-full">
+    <div className="flex flex-col md:flex-row h-screen">
       <div id-="left" className="md:w-1/3  bg-left text-white font-raleway">
         {isDrawerActive ? (
           <SearchForPlacesDrawer />
