@@ -93,7 +93,7 @@ function App() {
           <h1 className="my-10 font-bold text-white text-xl">
             Today’s Highlights
           </h1>
-          <div className="w-full grid grid-rows-2 md:grid-rows-1 grid-flow-col gap-10">
+          <div className="w-full grid grid-cols-2 md:grid-cols-1 grid-flow-col gap-10">
             <WindStatus
               windSpeed={weatherProps?.data[0].wind_spd}
               windDirection={weatherProps?.data[0].wind_cdir}
