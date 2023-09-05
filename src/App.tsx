@@ -34,19 +34,6 @@ function App() {
     }&key=${token}`
   );
 
-  // useEffect(() => {
-  // console.log(currentCoordinates);
-  // if (currentCoordinates.latitude === 0) {
-  //   setURL(
-  //     `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${token}`
-  //   );
-  // } else {
-  //   setURL(
-  //     `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${token}`
-  //   );
-  // }
-  // }, [currentCoordinates]);
-
   async function fetchWeatherProps() {
     const response = await fetch(url);
     const weather_props = await response.json();
@@ -58,7 +45,7 @@ function App() {
   }, [city, currentCoordinates.latitude]);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <div id-="left" className="md:w-1/3  bg-left text-white font-raleway">
         {isDrawerActive ? (
           <SearchForPlacesDrawer />
